@@ -6,7 +6,7 @@ const ItemsScreen = props => {
     //console.log('ItemsScreen props', props.navigation.state.params.categoryId)
     //console.log('ItemsScreen props', props.navigation.getParam('categoryId'))
     return <View>
-        <Text style={styles.screen}>ItemsScreen</Text>
+        <Text>ItemsScreen</Text>
         <Button onPress = {() => {props.navigation.goBack()}}title="Go back"></Button>
     </View>
 }
@@ -14,13 +14,9 @@ const ItemsScreen = props => {
 ItemsScreen.navigationOptions = (navigationData) => {
     const selectedItem = navigationData.navigation.getParam('categoryId')
 
-
     return {
-        headerTitle: selectedItem.toString(),
-        headerStyle: {
-            backgroundColor: Colors.primaryColor
-        },
-        headerTintColor: Colors.accentColor
+        headerTitle: 'selectedItem',
+        headerTintColor: 'green'
     }
 };
 

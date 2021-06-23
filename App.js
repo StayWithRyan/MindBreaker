@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import ItemsNavigator from './navigation/ItemsNavigator'
+import TabNavigator from './navigation/TabNavigator'
 
 console.log("==============================================================================")
 
@@ -17,7 +17,7 @@ export default function App() {
     }
 
     return (
-        <ItemsNavigator/>
+        <TabNavigator/>
     );
 }
 

@@ -1,13 +1,13 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-import CategoriesScreen from '../screens/CategoriesScreen'
+
+import ArchiveScreen from '../screens/ArchiveScreen'
 import ItemsScreen from '../screens/ItemsScreen'
 import Colors from '../constants/colors'
 
-const ItemsNavigator = createStackNavigator(
+const ArchiveNavigator = createStackNavigator(
     {
-        Items: ItemsScreen,
-        Categories: CategoriesScreen,
+        Archive: ArchiveScreen,
     },
     {
         defaultNavigationOptions: {
@@ -15,10 +15,10 @@ const ItemsNavigator = createStackNavigator(
                 backgroundColor: Colors.primaryColor
             },
             headerTintColor: Colors.accentColor,
-            cardStyle: { backgroundColor: '#d11313' }
+            cardStyle: { backgroundColor: 'yellow' }
         },
-        initialRouteName: 'Categories'
+        initialRouteName: 'Archive'
     }
 );
 
-export default createAppContainer(ItemsNavigator);
+export default createAppContainer(ArchiveNavigator);

@@ -1,15 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import Colors from '../constants/colors'
 
-
-const TodayItemsScreen = props => {
+const ArchiveScreen = props => {
     return <View>
-        <Text>TodayItemsScreen</Text>
-        <Button onPress={() => {
-            props.navigation.navigate('TodayItemActions')
-        }} title="Go to items"></Button>
+        <Text>ArchiveScreen</Text>
     </View>
 }
+
 
 const styles = StyleSheet.create({
     screen: {
@@ -19,4 +17,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default TodayItemsScreen;
+export default ArchiveScreen;

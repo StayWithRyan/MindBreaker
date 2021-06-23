@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
 import Colors from '../constants/colors'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import HeaderButton from '../components/HeaderButton'
 
 const CategoriesScreen = props => {
     console.log("props", props)
     return <View>
-        <Text style={styles.screen}>CategoriesScreen</Text>
+        <Text>CategoriesScreen</Text>
         <Button onPress={() => {
             props.navigation.navigate('Items', {
                 categoryId: 322
@@ -16,10 +18,13 @@ const CategoriesScreen = props => {
 
 CategoriesScreen.navigationOptions = {
     headerTitle: "ItemsCategories",
-    headerStyle: {
-        backgroundColor: Colors.primaryColor
-    },
-    headerTintColor: Colors.accentColor
+    headerRight: () => (
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+            <Item iconName='ios-star' onPress={() => {
+                console.log("add folder")
+            }} />
+        </HeaderButtons>
+    )
 }
 
 const styles = StyleSheet.create({
