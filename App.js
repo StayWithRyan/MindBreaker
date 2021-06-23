@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
+import ItemsNavigator from './navigation/ItemsNavigator'
+
+console.log("==============================================================================")
 
 export default function App() {
     const [loaded] = useFonts({
@@ -14,12 +17,7 @@ export default function App() {
     }
 
     return (
-        <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
-            <Text style={{ fontFamily: 'OpenSans' }}>Open up App.js to start working on your app!</Text>
-            <Text style={{ fontFamily: 'OpenSansBold' }}>Open up App.js to start working on your app!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <ItemsNavigator/>
     );
 }
 
