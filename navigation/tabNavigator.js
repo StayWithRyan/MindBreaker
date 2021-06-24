@@ -32,7 +32,7 @@ const TabNavigator = createBottomTabNavigator(
         }
     },
     {
-        initialRouteName: 'TodayItemsNavigator',
+        initialRouteName: 'ItemsNavigator',
         tabBarOptions: {
             inactiveTintColor: 'grey',
             activeTintColor: 'purple',
