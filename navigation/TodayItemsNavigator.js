@@ -10,12 +10,18 @@ const TodayItemsNavigator = createStackNavigator(
         TodayItemActions: TodayItemActionsScreen,
     },
     {
-        // defaultNavigationOptions: {
-        //     headerStyle: {
-        //         backgroundColor: Colors.primaryColor
-        //     },
-        //     headerTintColor: Colors.accentColor
-        // },
+        defaultNavigationOptions: {
+            headerTitleStyle: {
+                fontSize: 25,
+                fontFamily: 'OpenSansBold'
+            },
+            headerStyle: {
+                backgroundColor: Colors.headerColor,
+                shadowColor: Colors.headerShadowColor
+            },
+            headerTintColor: Colors.headerTextColor,
+            cardStyle: { backgroundColor: Colors.pageCardColor }
+        },
         initialRouteName: 'TodayItems'
     }
 );

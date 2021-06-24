@@ -20,7 +20,7 @@ CategoriesScreen.navigationOptions = {
     headerTitle: "ItemsCategories",
     headerRight: () => (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item iconName='ios-star' onPress={() => {
+            <Item iconName='ios-add-sharp' onPress={() => {
                 console.log("add folder")
             }} />
         </HeaderButtons>

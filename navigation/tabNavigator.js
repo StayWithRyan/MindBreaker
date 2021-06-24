@@ -1,25 +1,28 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons, Octicons   } from '@expo/vector-icons'; 
+import Colors from '../constants/colors';
 
-import ItemsNavigator from './ItemsNavigator'
-import TodayItemsNavigator from './TodayItemsNavigator'
-import ArchiveNavigator from './ArchiveNavigator'
+import ItemsNavigator from './ItemsNavigator';
+import TodayItemsNavigator from './TodayItemsNavigator';
+import ArchiveNavigator from './ArchiveNavigator';
 
 const TabNavigator = createBottomTabNavigator(
     {
         TodayItemsNavigator: {
             screen: TodayItemsNavigator, navigationOptions: {
                 tabBarIcon: (tabInfo) => {
-                    return <Ionicons name='ios-restaurant' size={35} color={tabInfo.tintColor} />
+                    return <Feather name='target' size={35} color={tabInfo.tintColor} />
                 }
             }
         },
         ItemsNavigator: {
             screen: ItemsNavigator, navigationOptions: {
                 tabBarIcon: (tabInfo) => {
-                    return <Ionicons name='airplane-outline' size={35} color={tabInfo.tintColor} />
+                    return <MaterialCommunityIcons  name='text-box-plus-outline' size={35} color={tabInfo.tintColor} />
                 }
             }
         },
@@ -34,9 +37,13 @@ const TabNavigator = createBottomTabNavigator(
     {
         initialRouteName: 'ItemsNavigator',
         tabBarOptions: {
-            inactiveTintColor: 'grey',
-            activeTintColor: 'purple',
-            showLabel: false
+            inactiveTintColor: Colors.tabInactiveTintColor,
+            activeTintColor: Colors.tabActiveTintColor,
+            showLabel: false,
+            style: {
+                backgroundColor: Colors.tabColor,
+                borderTopColor: Colors.tabBordedColor
+            }
         }
     }
 );

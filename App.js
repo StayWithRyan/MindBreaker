@@ -79,7 +79,10 @@ const store = createStore(itemsReducer);
 export default function App() {
     const [isFontsLoaded] = useFonts({
         OpenSans: require('./assets/fonts/OpenSans-Regular.ttf'),
-        OpenSansBold: require('./assets/fonts/OpenSans-Bold.ttf')
+        OpenSansBold: require('./assets/fonts/OpenSans-Bold.ttf'),
+        DancingScript: require('./assets/fonts/DancingScript-VariableFont_wght.ttf'),
+        Lobster: require('./assets/fonts/Lobster-Regular.ttf')
+        
     });
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     if (isFontsLoaded && !isDataLoaded) {
