@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import CategoriesScreen from '../screens/CategoriesScreen';
+import EditCategoryScreen from '../screens/EditCategoryScreen';
 import ItemsScreen from '../screens/ItemsScreen';
 import Colors from '../constants/colors';
 
@@ -8,6 +9,7 @@ const ItemsNavigator = createStackNavigator(
     {
         Items: ItemsScreen,
         Categories: CategoriesScreen,
+        EditCategoryScreen: EditCategoryScreen,
     },
     {
         defaultNavigationOptions: {
@@ -19,9 +21,9 @@ const ItemsNavigator = createStackNavigator(
                 backgroundColor: Colors.headerColor,
                 shadowColor: Colors.headerShadowColor,
             },
-            headerTintColor: Colors.headerTextColor,
+            headerTintColor: Colors.mainTextColor,
             cardStyle: {
-                backgroundColor: Colors.pageCardColor,
+                backgroundColor: Colors.pageBackgroundColor,
             }
         },
         initialRouteName: 'Categories'

@@ -1,19 +1,68 @@
-import React from 'react';
-import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, FlatList, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
 import Colors from '../constants/colors'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import HeaderButton from '../components/HeaderButton'
+import { SwipeListView } from 'react-native-swipe-list-view';
+import { useSelector, useDispatch } from 'react-redux';
+import { SimpleLineIcons, FontAwesome } from '@expo/vector-icons';
+import { updateCategory } from '../store/action'
 
 const CategoriesScreen = props => {
-    console.log("props", props)
-    return <View>
-        <Text>CategoriesScreen</Text>
-        <Button onPress={() => {
-            props.navigation.navigate('Items', {
-                categoryId: 322
-            })
-        }} title="Go to items"></Button>
-    </View>
+    const dispatch = useDispatch()
+    const categories = useSelector((state) => {
+        return state
+    }).categories
+
+    const renderItem = data => {
+        return <TouchableHighlight
+            onPress={() => console.log('You touched me')}
+            style={styles.rowFront}
+            underlayColor={Colors.cardColor}
+        >
+            <View>
+                <Text style={styles.category}>{data.item.name}</Text>
+            </View>
+        </TouchableHighlight>
+    };
+
+    const renderHiddenItem = (data, rowMap) => (
+        <View style={styles.rowBack}>
+            <TouchableOpacity
+                style={[styles.backRightBtn, styles.backRightBtnLeft]}
+                onPress={
+                    () => {
+                        props.navigation.navigate('EditCategoryScreen')
+                        dispatch(updateCategory(data.item.id, 'suka'))
+                        rowMap[data.item.id].closeRow();
+                    }
+                }
+            >
+                <SimpleLineIcons name="pencil" size={35} color="white" />
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={[styles.backRightBtn, styles.backRightBtnRight]}
+                onPress={
+                    () => {
+                        console.log('delete')
+                    }
+                }
+            >
+                <FontAwesome name="trash-o" size={35} color="white" />
+            </TouchableOpacity>
+        </View>
+    );
+
+    return (
+        <SwipeListView
+            data={categories}
+            renderItem={renderItem}
+            renderHiddenItem={renderHiddenItem}
+            rightOpenValue={-150}
+            disableRightSwipe={true}
+            keyExtractor={item => item.id.toString()}
+        />
+    );
 }
 
 CategoriesScreen.navigationOptions = {
@@ -27,11 +76,45 @@ CategoriesScreen.navigationOptions = {
     )
 }
 
+
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
+    rowFront: {
+        alignItems: 'center',
+        backgroundColor: Colors.cardColor,
+        borderRadius: 15,
         justifyContent: 'center',
-        alignItems: 'center'
+        height: 70,
+        marginTop: 10,
+        marginHorizontal: 10
+    },
+    rowBack: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    backRightBtn: {
+        marginTop: 10,
+        marginHorizontal: 10,
+        alignItems: 'center',
+        bottom: 0,
+        justifyContent: 'center',
+        position: 'absolute',
+        top: 0,
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+    },
+    backRightBtnLeft: {
+        backgroundColor: '#6380f6',
+        right: 75,
+    },
+    backRightBtnRight: {
+        backgroundColor: '#bbbbbb',
+        right: 0,
+    },
+    category: {
+        color: Colors.mainTextColor,
+        fontSize: 25,
+        fontFamily: 'OpenSans'
     }
 });
 

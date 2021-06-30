@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import itemsReducer from './store/reducer'
 import { getData, storeData, clearData } from './store/localStorage'
 import { setState } from './store/action'
-
+import Colors from './constants/colors'
 
 const initialState = {
     categories: [
@@ -82,7 +82,7 @@ export default function App() {
         OpenSansBold: require('./assets/fonts/OpenSans-Bold.ttf'),
         DancingScript: require('./assets/fonts/DancingScript-VariableFont_wght.ttf'),
         Lobster: require('./assets/fonts/Lobster-Regular.ttf')
-        
+
     });
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     if (isFontsLoaded && !isDataLoaded) {
@@ -105,7 +105,9 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <TabNavigator />
+            <View style={{backgroundColor: Colors.pageBackgroundColor, flex: 1}}>
+                <TabNavigator />
+            </View>
         </Provider>
     );
 }

@@ -1,9 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons'; 
-import { MaterialCommunityIcons, Octicons   } from '@expo/vector-icons'; 
+import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../constants/colors';
 
 import ItemsNavigator from './ItemsNavigator';
@@ -22,7 +20,7 @@ const TabNavigator = createBottomTabNavigator(
         ItemsNavigator: {
             screen: ItemsNavigator, navigationOptions: {
                 tabBarIcon: (tabInfo) => {
-                    return <MaterialCommunityIcons  name='text-box-plus-outline' size={35} color={tabInfo.tintColor} />
+                    return <MaterialCommunityIcons name='text-box-plus-outline' size={35} color={tabInfo.tintColor} />
                 }
             }
         },

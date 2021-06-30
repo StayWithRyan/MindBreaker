@@ -19,10 +19,10 @@ const TodayItemsNavigator = createStackNavigator(
                 backgroundColor: Colors.headerColor,
                 shadowColor: Colors.headerShadowColor
             },
-            headerTintColor: Colors.headerTextColor,
-            cardStyle: { backgroundColor: Colors.pageCardColor }
+            headerTintColor: Colors.mainTextColor,
+            cardStyle: { backgroundColor: Colors.pageBackgroundColor }
         },
-        initialRouteName: 'TodayItems'
+        initialRouteName: 'TodayItems',
     }
 );
 
