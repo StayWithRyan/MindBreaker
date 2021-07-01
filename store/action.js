@@ -3,18 +3,34 @@ export const UPDATE_CATEGORY = 'UPDATE_CATEGORY'
 export const DELETE_CATEGORY = 'DELETE_CATEGORY'
 export const ADD_CATEGORY = 'ADD_CATEGORY'
 
+export const UPDATE_ITEM = 'UPDATE_ITEM'
+export const DELETE_ITEM = 'DELETE_ITEM'
+export const ADD_ITEM = 'ADD_ITEM'
+
 export const setState = (state) => {
-    return {type: SET_STATE, state : state}
+    return { type: SET_STATE, state: state }
 }
 
 export const updateCategory = (idToUpdate, newName) => {
-    return {type: UPDATE_CATEGORY, idToUpdate, newName}
+    return { type: UPDATE_CATEGORY, idToUpdate, newName }
 }
 
 export const deleteCategory = (idToDelete) => {
-    return {type: DELETE_CATEGORY, idToDelete}
+    return { type: DELETE_CATEGORY, idToDelete }
 }
 
 export const addCategory = (categoryName) => {
-    return {type: ADD_CATEGORY, categoryName}
+    return { type: ADD_CATEGORY, categoryName }
+}
+
+export const updateItem = (categoryId, idToUpdate, newName, newDescription) => {
+    return { type: UPDATE_ITEM, categoryId, idToUpdate, newName, newDescription }
+}
+
+export const deleteItem = (categoryId, idToDelete) => {
+    return { type: DELETE_ITEM, categoryId, idToDelete }
+}
+
+export const addItem = (categoryIdToAdd, itemName, itemDescription) => {
+    return { type: ADD_ITEM, categoryIdToAdd, itemName, itemDescription }
 }

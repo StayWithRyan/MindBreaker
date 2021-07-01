@@ -15,10 +15,10 @@ const CategoriesScreen = props => {
         <SwipeList
             data={categories}
             onPress={(data) => {
-                props.navigation.navigate('Items', { category: data.item })
+                props.navigation.navigate('Items', { categoryId: data.item.id, categoryName: data.item.name})
             }}
             onEdit={(data) => {
-                props.navigation.navigate('EditCategory', { category: data.item })
+                props.navigation.navigate('EditCategory', { categoryId: data.item.id, categoryName: data.item.name })
             }}
             onDelete={(data) => {
                 dispatch(deleteCategory(data.item.id));

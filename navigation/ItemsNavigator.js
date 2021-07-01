@@ -3,6 +3,8 @@ import { createAppContainer } from 'react-navigation';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import EditCategoryScreen from '../screens/EditCategoryScreen';
 import AddCategoryScreen from '../screens/AddCategoryScreen';
+import AddItemScreen from '../screens/AddItemScreen';
+import EditItemScreen from '../screens/EditItemScreen';
 
 import ItemsScreen from '../screens/ItemsScreen';
 import Colors from '../constants/colors';
@@ -13,6 +15,8 @@ const ItemsNavigator = createStackNavigator(
         Categories: CategoriesScreen,
         EditCategory: EditCategoryScreen,
         AddCategory: AddCategoryScreen,
+        AddItem: AddItemScreen,
+        EditItem: EditItemScreen,
     },
     {
         defaultNavigationOptions: {

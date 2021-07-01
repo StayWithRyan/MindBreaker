@@ -1,23 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import HeaderButton from '../components/HeaderButton'
+import { StyleSheet } from 'react-native';
 import SwipeList from '../components/SwipeList';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteItem } from '../store/action';
 const ItemsScreen = props => {
-    const category = props.navigation.state.params.category;
-    console.log('ItemsScreen props', props.navigation.state.params.category.items)
-
+    const dispatch = useDispatch();
+    const categoryId = props.navigation.state.params.categoryId;
+    const category = useSelector((state) => {
+        return state
+    }).categories.find(category => category.id == categoryId);
     return (
         <SwipeList
             withDescription
             data={category.items}
-            onPress={(data) => {
-                console.log('onPress')
-            }}
             onEdit={(data) => {
-                console.log('onEdit')
+                props.navigation.navigate('EditItem', { categoryId, itemId: data.item.id, itemName: data.item.name, itemDescription: data.item.description })
             }}
             onDelete={(data) => {
-                console.log('onDelete')
+                dispatch(deleteItem(categoryId, data.item.id));
             }}
         />
     );
@@ -25,9 +27,16 @@ const ItemsScreen = props => {
 
 ItemsScreen.navigationOptions = (navigationData) => {
     return {
-        headerTitle: navigationData.navigation.state.params.category.name
+        headerTitle: navigationData.navigation.state.params.categoryName,
+        headerRight: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item iconName='ios-add-sharp' onPress={() => {
+                    navigationData.navigation.navigate('AddItem', { categoryId: navigationData.navigation.state.params.categoryId })
+                }} />
+            </HeaderButtons>
+        )
     }
-};
+}
 
 const styles = StyleSheet.create({
     screen: {

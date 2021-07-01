@@ -10,7 +10,7 @@ const SwipeList = props => {
         return <TouchableHighlight
             onPress={
                 () => {
-                    props.onPress(data)
+                    props.onPress && props.onPress(data)
                 }
             }
             style={styles.rowFront}
@@ -22,7 +22,8 @@ const SwipeList = props => {
                     <Feather style={{
                         position: 'absolute',
                         left: 10,
-                        top: props.withDescription ? 0 : -10
+                        top: props.withDescription ? 0 : -10,
+                        color : 'indianred'
                     }} name="folder" size={20} color="white" />
                 }
                 {
@@ -30,7 +31,8 @@ const SwipeList = props => {
                     <MaterialCommunityIcons style={{
                         position: 'absolute',
                         left: 10,
-                        top: props.withDescription ? 0 : -10
+                        top: props.withDescription ? 0 : -10,
+                        color : 'indianred'
                     }} name="target" size={25} color="white" />
                 }
                 <View style={{ alignItems: 'center', flex: 1 }}>

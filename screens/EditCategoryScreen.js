@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, StyleSheet} from 'react-native';
-import { useDispatch } from 'react-redux';
+import { View, StyleSheet } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { updateCategory } from '../store/action';
 
 import FilledButton from '../components/FilledButton';
@@ -10,15 +10,16 @@ import OutlinedTextInput from '../components/OutlinedTextInput';
 const EditCategoryScreen = props => {
     const dispatch = useDispatch();
 
-    const category = props.navigation.state.params.category;
+    const categoryId = props.navigation.state.params.categoryId;
+    const categoryName = props.navigation.state.params.categoryName;
 
-    const [name, setName] = useState(category.name);
+    const [name, setName] = useState(categoryName);
     const onClose = () => {
         props.navigation.goBack();
     }
 
     const onUpdate = () => {
-        dispatch(updateCategory(category.id, name));
+        dispatch(updateCategory(categoryId, name));
         props.navigation.goBack();
     }
 
@@ -36,7 +37,7 @@ const EditCategoryScreen = props => {
 
 EditCategoryScreen.navigationOptions = (navigationData) => {
     return {
-        headerTitle: navigationData.navigation.state.params.category.name
+        headerTitle: navigationData.navigation.state.params.categoryName
     }
 };
 
