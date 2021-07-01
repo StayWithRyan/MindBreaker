@@ -1,21 +1,31 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import SwipeList from '../components/SwipeList';
 
 const ItemsScreen = props => {
-    //console.log('ItemsScreen props', props.navigation.state.params.categoryId)
-    //console.log('ItemsScreen props', props.navigation.getParam('categoryId'))
-    return <View>
-        <Text>ItemsScreen</Text>
-        <Button onPress = {() => {props.navigation.goBack()}}title="Go back"></Button>
-    </View>
+    const category = props.navigation.state.params.category;
+    console.log('ItemsScreen props', props.navigation.state.params.category.items)
+
+    return (
+        <SwipeList
+            withDescription
+            data={category.items}
+            onPress={(data) => {
+                console.log('onPress')
+            }}
+            onEdit={(data) => {
+                console.log('onEdit')
+            }}
+            onDelete={(data) => {
+                console.log('onDelete')
+            }}
+        />
+    );
 }
 
 ItemsScreen.navigationOptions = (navigationData) => {
-    const selectedItem = navigationData.navigation.getParam('categoryId')
-
     return {
-        headerTitle: 'selectedItem',
-        headerTintColor: 'green'
+        headerTitle: navigationData.navigation.state.params.category.name
     }
 };
 
