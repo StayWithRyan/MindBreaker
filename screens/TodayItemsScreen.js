@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-//import {doSomething} from '../store/action'
 
 const TodayItemsScreen = props => {
 
@@ -14,8 +12,6 @@ const TodayItemsScreen = props => {
 }
 
 TodayItemsScreen.navigationOptions = (navigationData) => {
-    //const selectedItem = navigationData.navigation.getParam('categoryId')
-
     return {
         headerTitle: 'MindBreaker'
     }

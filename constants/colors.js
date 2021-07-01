@@ -17,4 +17,7 @@ export default {
 
     //text
     mainTextColor: '#E1E1E1',
+
+    //button
+    mainButtonColor: '#f2ca44'
 }

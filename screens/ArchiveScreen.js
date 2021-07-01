@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import Colors from '../constants/colors'
+import { View, Text, StyleSheet } from 'react-native';
 
 const ArchiveScreen = props => {
     return <View>

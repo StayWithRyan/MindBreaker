@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Button, TouchableHighlight, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
 import Colors from '../constants/colors'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import HeaderButton from '../components/HeaderButton'
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { useSelector, useDispatch } from 'react-redux';
 import { SimpleLineIcons, FontAwesome } from '@expo/vector-icons';
-import { updateCategory } from '../store/action'
+import { deleteCategory } from '../store/action'
 
 const CategoriesScreen = props => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const categories = useSelector((state) => {
         return state
-    }).categories
+    }).categories;
 
     const renderItem = data => {
         return <TouchableHighlight
@@ -32,8 +32,7 @@ const CategoriesScreen = props => {
                 style={[styles.backRightBtn, styles.backRightBtnLeft]}
                 onPress={
                     () => {
-                        props.navigation.navigate('EditCategoryScreen')
-                        dispatch(updateCategory(data.item.id, 'suka'))
+                        props.navigation.navigate('EditCategory', { category: data.item })
                         rowMap[data.item.id].closeRow();
                     }
                 }
@@ -44,7 +43,7 @@ const CategoriesScreen = props => {
                 style={[styles.backRightBtn, styles.backRightBtnRight]}
                 onPress={
                     () => {
-                        console.log('delete')
+                        dispatch(deleteCategory(data.item.id));
                     }
                 }
             >
@@ -65,16 +64,20 @@ const CategoriesScreen = props => {
     );
 }
 
-CategoriesScreen.navigationOptions = {
-    headerTitle: "ItemsCategories",
-    headerRight: () => (
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-            <Item iconName='ios-add-sharp' onPress={() => {
-                console.log("add folder")
-            }} />
-        </HeaderButtons>
-    )
+CategoriesScreen.navigationOptions = (navigationData) => {
+    return {
+        headerTitle: "Categories",
+        headerRight: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item iconName='ios-add-sharp' onPress={() => {
+                    navigationData.navigation.navigate('AddCategory')
+                }} />
+            </HeaderButtons>
+        )
+    }
 }
+
+
 
 
 const styles = StyleSheet.create({
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 70,
         marginTop: 10,
-        marginHorizontal: 10
+        marginHorizontal: 10,
     },
     rowBack: {
         flex: 1,

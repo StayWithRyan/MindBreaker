@@ -70,7 +70,8 @@ const initialState = {
             ]
         }
     ],
-    todayItems: [6, 7]
+    todayItems: [6, 7],
+    freeId: 8
 }
 console.log("==============================================================================")
 
