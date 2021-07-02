@@ -1,6 +1,6 @@
 import {
-    SET_STATE, UPDATE_CATEGORY, DELETE_CATEGORY,
-    ADD_CATEGORY, ADD_ITEM, DELETE_ITEM, UPDATE_ITEM
+    SET_STATE, UPDATE_CATEGORY, DELETE_CATEGORY, UPDATE_CATEGORY_ITEMS_IS_ARCHIVED,
+    ADD_CATEGORY, ADD_ITEM, DELETE_ITEM, UPDATE_ITEM, UPDATE_ITEM_IS_ARCHIVED
 } from './action'
 import { storeData, getData } from './localStorage'
 
@@ -20,7 +20,7 @@ const itemsReducer = (state = {}, action) => {
             category.name = action.newName;
             storeData(newState);
             return newState;
-        case DELETE_CATEGORY: // TODO: delete everywhere(archieve, todayItems)
+        case DELETE_CATEGORY: // TODO: delete everywhere(archive, todayItems)
             newState = JSON.parse(JSON.stringify(state));
             newState.categories = newState.categories.filter(category => category.id != action.idToDelete);
             storeData(newState);
@@ -64,6 +64,21 @@ const itemsReducer = (state = {}, action) => {
             item = category.items.find(item => item.id == action.idToUpdate)
             item.name = action.newName;
             item.description = action.newDescription;
+            storeData(newState);
+            return newState;
+        case UPDATE_ITEM_IS_ARCHIVED:
+            newState = JSON.parse(JSON.stringify(state));
+            category = newState.categories.find(category => category.id == action.categoryId)
+            item = category.items.find(item => item.id == action.itemId)
+            item.isArchived = action.isArchived;
+            storeData(newState);
+            return newState;
+        case UPDATE_CATEGORY_ITEMS_IS_ARCHIVED:
+            newState = JSON.parse(JSON.stringify(state));
+            category = newState.categories.find(category => category.id == action.categoryId)
+            category.items.forEach(item => {
+                item.isArchived = action.isArchived
+            });
             storeData(newState);
             return newState;
         default:

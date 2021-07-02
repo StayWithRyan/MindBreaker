@@ -14,7 +14,7 @@ const initialState = {
     categories: [
         {
             id: 1,
-            name: "English",
+            name: "Not archived category",
             items: [
                 {
                     id: 2,
@@ -38,7 +38,7 @@ const initialState = {
         },
         {
             id: 4,
-            name: "React",
+            name: "Half arcvhived category",
             items: [
                 {
                     id: 5,
@@ -61,14 +61,38 @@ const initialState = {
                 {
                     id: 7,
                     name: 'redux',
-                    description: 'complex state management',
+                    description: 'archived',
                     refreshes: [
                         '2021-06-21'
                     ],
                     isArchived: true
                 }
             ]
-        }
+        },
+        {
+            id: 8,
+            name: "Archived category",
+            items: [
+                {
+                    id: 9,
+                    name: 'Word',
+                    description: 'a1',
+                    refreshes: [
+                        '2021-06-21'
+                    ],
+                    isArchived: true
+                },
+                {
+                    id: 10,
+                    name: 'Word',
+                    description: 'a2',
+                    refreshes: [
+                        '2021-06-21'
+                    ],
+                    isArchived: true
+                }
+            ]
+        },
     ],
     todayItems: [6, 7],
     freeId: 8
@@ -90,13 +114,13 @@ export default function App() {
         getData().then((data) => {
             if (data === null) {
                 storeData(initialState).then(() => {
-                    setIsDataLoaded(true)
                     store.dispatch(setState(initialState))
+                    setIsDataLoaded(true)
                 })
             }
             else {
-                setIsDataLoaded(true)
                 store.dispatch(setState(data))
+                setIsDataLoaded(true)
             }
         })
     }

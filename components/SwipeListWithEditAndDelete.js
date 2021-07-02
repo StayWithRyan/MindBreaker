@@ -4,7 +4,7 @@ import Colors from '../constants/colors'
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { SimpleLineIcons, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
-const SwipeList = props => {
+const SwipeListWithEditAndDelete = props => {
 
     const renderItem = data => {
         return <TouchableHighlight
@@ -131,4 +131,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SwipeList;
+export default SwipeListWithEditAndDelete;
