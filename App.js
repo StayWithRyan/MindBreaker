@@ -12,44 +12,8 @@ import Colors from './constants/colors'
 
 const initialState = {
     categories: [
-        {
-            id: 1,
-            name: "C1",
-            items: [
-                {
-                    id: 3,
-                    name: 'C1Irthrthrthrthrthrthrthr1',
-                    description: 'слоthrthrthrthrthrth rth rthr hrt rth rth rthrво',
-                    refreshes: [],
-                    isArchived: false,
-                    skippedDate: null
-                },
-                {
-                    id: 4,
-                    name: 'C1I2',
-                    description: 'слово',
-                    refreshes: [],
-                    isArchived: false,
-                    skippedDate: null
-                }
-            ]
-        },
-        {
-            id: 2,
-            name: "C2",
-            items: [
-                {
-                    id: 5,
-                    name: 'C2I1',
-                    description: 'слово',
-                    refreshes: [],
-                    isArchived: true,
-                    skippedDate: null
-                }
-            ]
-        }
     ],
-    freeId: 11
+    freeId: 0
 }
 
 const store = createStore(itemsReducer);

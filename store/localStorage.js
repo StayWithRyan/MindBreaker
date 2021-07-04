@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const STORAGE_KEY = 'data43'
+const STORAGE_KEY = 'data'
 
 const clearData = async () => {
     await AsyncStorage.clear();
