@@ -11,9 +11,14 @@ const CategoriesScreen = props => {
     const categories = useSelector((state) => {
         return state;
     }).categories;
+    console.log("...........................................................")
+    console.log(categories)
     const categoriesWithoutArchivedItems = [];
     categories.forEach(category => {
-        if (category.items.some((item) => !item.isArchived)) {
+        if (category.items.length == 0) {
+            categoriesWithoutArchivedItems.push(category);
+        }
+        else if (category.items.some((item) => !item.isArchived)) {
             categoriesWithoutArchivedItems.push(category);
         }
     });
@@ -28,7 +33,7 @@ const CategoriesScreen = props => {
         <SwipeListWithEditAndDelete
             data={categoriesWithoutArchivedItems}
             onPress={(data) => {
-                props.navigation.navigate('Items', { categoryId: data.item.id, categoryName: data.item.name})
+                props.navigation.navigate('Items', { categoryId: data.item.id, categoryName: data.item.name })
             }}
             onEdit={(data) => {
                 props.navigation.navigate('EditCategory', { categoryId: data.item.id, categoryName: data.item.name })

@@ -10,6 +10,9 @@ export const ADD_ITEM = 'ADD_ITEM'
 export const UPDATE_ITEM_IS_ARCHIVED = 'UPDATE_ITEM_IS_ARCHIVED'
 
 
+export const UPDATE_REFRESHED_ITEM = 'UPDATE_REFRESHED_ITEM'
+export const UPDATE_SKIPPED_ITEM = 'UPDATE_SKIPPED_ITEM'
+
 export const setState = (state) => {
     return { type: SET_STATE, state: state }
 }
@@ -44,4 +47,12 @@ export const addItem = (categoryIdToAdd, itemName, itemDescription) => {
 
 export const updateItemIsArchived = (categoryId, itemId, isArchived) => {
     return { type: UPDATE_ITEM_IS_ARCHIVED, categoryId, itemId, isArchived }
+}
+
+export const updateRefreshedItem = (categoryId, itemId) => {
+    return { type: UPDATE_REFRESHED_ITEM, categoryId, itemId }
+}
+
+export const updateSkippedItem = (categoryId, itemId) => {
+    return { type: UPDATE_SKIPPED_ITEM, categoryId, itemId }
 }

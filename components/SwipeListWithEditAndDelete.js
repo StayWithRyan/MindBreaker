@@ -23,7 +23,7 @@ const SwipeListWithEditAndDelete = props => {
                         position: 'absolute',
                         left: 10,
                         top: props.withDescription ? 0 : -10,
-                        color : 'indianred'
+                        color: Colors.mainButtonColor
                     }} name="folder" size={20} color="white" />
                 }
                 {
@@ -32,14 +32,14 @@ const SwipeListWithEditAndDelete = props => {
                         position: 'absolute',
                         left: 10,
                         top: props.withDescription ? 0 : -10,
-                        color : 'indianred'
+                        color: Colors.mainButtonColor
                     }} name="target" size={25} color="white" />
                 }
                 <View style={{ alignItems: 'center', flex: 1 }}>
-                    <Text style={styles.mainText}>{data.item.name}</Text>
+                    <Text style={styles.mainText} ellipsizeMode='tail' numberOfLines={1}>{data.item.name}</Text>
                     {
                         props.withDescription &&
-                        <Text style={styles.secondText}>{data.item.description}</Text>
+                        <Text style={styles.secondText} ellipsizeMode='tail' numberOfLines={1}>{data.item.description}</Text>
                     }
                 </View>
             </View>
@@ -73,7 +73,7 @@ const SwipeListWithEditAndDelete = props => {
 
     return (
         <SwipeListView
-            data={props.data}
+            data={props.data.sort((a, b) => (a.name > b.name))}
             renderItem={renderItem}
             renderHiddenItem={renderHiddenItem}
             rightOpenValue={-150}
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         borderRadius: 35,
     },
     backRightBtnLeft: {
-        backgroundColor: '#6380f6',
+        backgroundColor: Colors.mainButtonColor,
         right: 75,
     },
     backRightBtnRight: {
@@ -122,12 +122,16 @@ const styles = StyleSheet.create({
     mainText: {
         color: Colors.mainTextColor,
         fontSize: 25,
-        fontFamily: 'OpenSans'
+        fontFamily: 'OpenSans',
+        width: '80%',
+        textAlign: 'center'
     },
     secondText: {
         color: Colors.secondTextColor,
         fontSize: 15,
-        fontFamily: 'OpenSans'
+        fontFamily: 'OpenSans',
+        width: '90%',
+        textAlign: 'center'
     }
 });
 

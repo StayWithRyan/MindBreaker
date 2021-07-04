@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity, LayoutAnimation } from 'react-native';
 import Colors from '../constants/colors'
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { SimpleLineIcons, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
-const SwipeListWithBack = props => {
+const SwipeList = props => {
+    const [isOpen, setIsOpen] = useState(true);
 
     const renderItem = data => {
         return <TouchableHighlight
@@ -46,31 +47,27 @@ const SwipeListWithBack = props => {
         </TouchableHighlight>
     };
 
-    const renderHiddenItem = (data, rowMap) => (
-        <View style={styles.rowBack}>
-            <TouchableOpacity
-                style={styles.backRightBtn}
-                onPress={
-                    () => {
-                        props.onBack(data)
-                    }
-                }
-            >
-                <MaterialCommunityIcons name="text-box-check-outline" size={35} color="white" />
-            </TouchableOpacity>
-        </View>
-    );
-
-    return (
-        <SwipeListView
-            data={props.data.sort((a, b) => (a.name > b.name))}
-            renderItem={renderItem}
-            renderHiddenItem={renderHiddenItem}
-            rightOpenValue={-75}
-            disableRightSwipe={true}
-            keyExtractor={item => item.id.toString()}
-        />
-    );
+    return <View>
+        <TouchableOpacity style={styles.categoryBorder} onPress={() => {
+            LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+            setIsOpen((prevState) => {
+                return !prevState
+            })
+        }}>
+            <Text style={styles.categoryText} ellipsizeMode='tail' numberOfLines={1} >{props.title}</Text>
+        </TouchableOpacity>
+        {
+            isOpen
+            &&
+            <SwipeListView
+                data={props.data.sort((a, b) => (a.name > b.name))}
+                renderItem={renderItem}
+                disableRightSwipe={true}
+                disableLeftSwipe={true}
+                keyExtractor={item => item.id.toString()}
+            />
+        }
+    </View>
 }
 
 
@@ -116,7 +113,18 @@ const styles = StyleSheet.create({
         fontFamily: 'OpenSans',
         width: '90%',
         textAlign: 'center'
+    },
+    categoryText: {
+        color: Colors.mainTextColor,
+        fontFamily: 'OpenSans',
+        fontSize: 24
+    },
+    categoryBorder: {
+        width: '90%',
+        alignSelf: 'center',
+        borderBottomWidth: 2,
+        borderBottomColor: Colors.mainButtonColor
     }
 });
 
-export default SwipeListWithBack;
+export default SwipeList;

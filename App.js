@@ -14,88 +14,27 @@ const initialState = {
     categories: [
         {
             id: 1,
-            name: "Not archived category",
+            name: "C1",
             items: [
                 {
                     id: 2,
-                    name: 'Word',
+                    name: 'C1I1',
                     description: 'слово',
                     refreshes: [
-                        '2021-06-21'
+                        "06/01/2021",
+                        "06/02/2021",
+                        "06/03/2021",
+                        "06/04/2021",
+                        "06/05/2021",
+                        "06/05/2021"
                     ],
-                    isArchived: false
-                },
-                {
-                    id: 3,
-                    name: 'Crown',
-                    description: 'корона',
-                    refreshes: [
-                        '2021-06-21'
-                    ],
-                    isArchived: false
+                    isArchived: false,
+                    skippedDate: "06/03/2021"
                 }
             ]
-        },
-        {
-            id: 4,
-            name: "Half arcvhived category",
-            items: [
-                {
-                    id: 5,
-                    name: 'useState',
-                    description: 'state management',
-                    refreshes: [
-                        '2021-06-21'
-                    ],
-                    isArchived: false
-                },
-                {
-                    id: 6,
-                    name: 'useEffect',
-                    description: 'side effects',
-                    refreshes: [
-                        '2021-06-21'
-                    ],
-                    isArchived: false
-                },
-                {
-                    id: 7,
-                    name: 'redux',
-                    description: 'archived',
-                    refreshes: [
-                        '2021-06-21'
-                    ],
-                    isArchived: true
-                }
-            ]
-        },
-        {
-            id: 8,
-            name: "Archived category",
-            items: [
-                {
-                    id: 9,
-                    name: 'Word',
-                    description: 'a1',
-                    refreshes: [
-                        '2021-06-21'
-                    ],
-                    isArchived: true
-                },
-                {
-                    id: 10,
-                    name: 'Word',
-                    description: 'a2',
-                    refreshes: [
-                        '2021-06-21'
-                    ],
-                    isArchived: true
-                }
-            ]
-        },
+        }
     ],
-    todayItems: [6, 7],
-    freeId: 8
+    freeId: 11
 }
 console.log("==============================================================================")
 
@@ -130,7 +69,7 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <View style={{backgroundColor: Colors.pageBackgroundColor, flex: 1}}>
+            <View style={{ backgroundColor: Colors.pageBackgroundColor, flex: 1 }}>
                 <TabNavigator />
             </View>
         </Provider>

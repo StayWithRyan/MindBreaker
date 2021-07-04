@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const STORAGE_KEY = 'data6'
+const STORAGE_KEY = 'data39'
 
 const clearData = async () => {
     await AsyncStorage.clear();
@@ -15,9 +15,6 @@ const storeData = async (value) => {
 const getData = async () => {
     try {
         const jsonValue = await AsyncStorage.getItem(STORAGE_KEY)
-        if (jsonValue === null) {
-            alert('localStorage is empty')
-        }
         return jsonValue !== null ? JSON.parse(jsonValue) : null;
     } catch (e) {
         alert('getData: localStorage FAILED')
