@@ -2,7 +2,7 @@
 
 export const getDate = () => {
     const offset = 3; // + 3 hour
-    const today = new Date(new Date().getTime() + offset * 3600 * 1000)
+    const today = new Date(new Date().getTime() + offset * 3600 * 1000);
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const yyyy = today.getFullYear();

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
-import Colors from '../constants/colors'
+import Colors from '../constants/colors';
+
 const OutlinedTextInput = props => {
     return (
         <View style={styles.inputCard}>
@@ -8,7 +9,6 @@ const OutlinedTextInput = props => {
         </View>
     );
 }
-
 
 const styles = StyleSheet.create({
     inputCard: {

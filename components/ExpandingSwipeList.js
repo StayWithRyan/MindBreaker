@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity, LayoutAnimation } from 'react-native';
-import Colors from '../constants/colors'
+import Colors from '../constants/colors';
 import { SwipeListView } from 'react-native-swipe-list-view';
-import { SimpleLineIcons, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const SwipeList = props => {
     const [isOpen, setIsOpen] = useState(true);
@@ -11,7 +11,7 @@ const SwipeList = props => {
         return <TouchableHighlight
             onPress={
                 () => {
-                    props.onPress && props.onPress(data)
+                    props.onPress && props.onPress(data);
                 }
             }
             style={styles.rowFront}
@@ -51,7 +51,7 @@ const SwipeList = props => {
         <TouchableOpacity style={styles.categoryBorder} onPress={() => {
             LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
             setIsOpen((prevState) => {
-                return !prevState
+                return !prevState;
             })
         }}>
             <Text style={styles.categoryText} ellipsizeMode='tail' numberOfLines={1} >{props.title}</Text>
@@ -70,8 +70,6 @@ const SwipeList = props => {
     </View>
 }
 
-
-
 const styles = StyleSheet.create({
     rowFront: {
         alignItems: 'center',
@@ -81,24 +79,6 @@ const styles = StyleSheet.create({
         height: 70,
         marginTop: 10,
         marginHorizontal: 10,
-    },
-    rowBack: {
-        flex: 1,
-        alignItems: 'center',
-    },
-    backRightBtn: {
-        marginTop: 10,
-        marginHorizontal: 10,
-        alignItems: 'center',
-        bottom: 0,
-        justifyContent: 'center',
-        position: 'absolute',
-        top: 0,
-        width: 70,
-        height: 70,
-        borderRadius: 35,
-        backgroundColor: Colors.mainButtonColor,
-        right: 0,
     },
     mainText: {
         color: Colors.mainTextColor,
@@ -116,8 +96,8 @@ const styles = StyleSheet.create({
     },
     categoryText: {
         color: Colors.mainTextColor,
-        fontFamily: 'OpenSans',
-        fontSize: 24
+        fontFamily: 'OpenSansBold',
+        fontSize: 25
     },
     categoryBorder: {
         width: '90%',

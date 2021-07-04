@@ -1,8 +1,8 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-import TodayItemsScreen from '../screens/TodayItemsScreen'
-import TodayItemActionsScreen from '../screens/TodayItemActionsScreen'
-import Colors from '../constants/colors'
+import TodayItemsScreen from '../screens/TodayItemsScreen';
+import TodayItemActionsScreen from '../screens/TodayItemActionsScreen';
+import Colors from '../constants/colors';
 
 const TodayItemsNavigator = createStackNavigator(
     {

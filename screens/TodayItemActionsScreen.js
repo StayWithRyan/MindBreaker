@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import Colors from '../constants/colors';
 import FilledButton from '../components/FilledButton';
 import OutlinedButton from '../components/OutlinedButton';
@@ -12,7 +12,6 @@ const TodayItemActionsScreen = props => {
     const itemId = specifiedParams.itemId;
     const itemName = specifiedParams.itemName;
     const itemDescription = specifiedParams.itemDescription;
-
     const dispatch = useDispatch();
 
     const onRefreshed = () => {
@@ -37,6 +36,11 @@ const TodayItemActionsScreen = props => {
     </View >
 }
 
+TodayItemActionsScreen.navigationOptions = (navigationData) => {
+    return {
+        headerTitle: navigationData.navigation.state.params.itemName
+    }
+};
 
 const styles = StyleSheet.create({
     mainText: {

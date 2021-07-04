@@ -5,7 +5,6 @@ import EditCategoryScreen from '../screens/EditCategoryScreen';
 import AddCategoryScreen from '../screens/AddCategoryScreen';
 import AddItemScreen from '../screens/AddItemScreen';
 import EditItemScreen from '../screens/EditItemScreen';
-
 import ItemsScreen from '../screens/ItemsScreen';
 import Colors from '../constants/colors';
 

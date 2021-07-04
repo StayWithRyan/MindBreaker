@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
-import Colors from '../constants/colors'
+import Colors from '../constants/colors';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { SimpleLineIcons, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -10,7 +10,7 @@ const SwipeListWithEditAndDelete = props => {
         return <TouchableHighlight
             onPress={
                 () => {
-                    props.onPress && props.onPress(data)
+                    props.onPress && props.onPress(data);
                 }
             }
             style={styles.rowFront}
@@ -52,7 +52,7 @@ const SwipeListWithEditAndDelete = props => {
                 style={[styles.backRightBtn, styles.backRightBtnLeft]}
                 onPress={
                     () => {
-                        props.onEdit(data)
+                        props.onEdit(data);
                     }
                 }
             >
@@ -62,7 +62,7 @@ const SwipeListWithEditAndDelete = props => {
                 style={[styles.backRightBtn, styles.backRightBtnRight]}
                 onPress={
                     () => {
-                        props.onDelete(data)
+                        props.onDelete(data);
                     }
                 }
             >
@@ -82,8 +82,6 @@ const SwipeListWithEditAndDelete = props => {
         />
     );
 }
-
-
 
 const styles = StyleSheet.create({
     rowFront: {

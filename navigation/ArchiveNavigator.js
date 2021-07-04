@@ -1,6 +1,5 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-
 import ArchiveCategoriesScreen from '../screens/ArchiveCategoriesScreen';
 import ArchiveItemsScreen from '../screens/ArchiveItemsScreen';
 import Colors from '../constants/colors';

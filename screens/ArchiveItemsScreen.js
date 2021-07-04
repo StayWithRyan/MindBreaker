@@ -3,16 +3,17 @@ import { StyleSheet } from 'react-native';
 import SwipeListWithBack from '../components/SwipeListWithBack';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateItemIsArchived } from '../store/action';
+
 const ArchiveItemsScreen = props => {
     const dispatch = useDispatch();
     const categoryId = props.navigation.state.params.categoryId;
     const category = useSelector((state) => {
-        return state
+        return state;
     }).categories.find(category => category.id == categoryId);
     const archivedItems = [];
     category.items.forEach(item => {
         if (item.isArchived) {
-            archivedItems.push(item)
+            archivedItems.push(item);
         }
     });
 
@@ -35,13 +36,5 @@ ArchiveItemsScreen.navigationOptions = (navigationData) => {
         headerTitle: navigationData.navigation.state.params.categoryName
     }
 }
-
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-});
 
 export default ArchiveItemsScreen;

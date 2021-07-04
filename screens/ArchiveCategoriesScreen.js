@@ -8,12 +8,12 @@ import Colors from '../constants/colors';
 const ArchiveCategoriesScreen = props => {
     const dispatch = useDispatch();
     const categories = useSelector((state) => {
-        return state
+        return state;
     }).categories;
     const categoriesWithArchivedItems = [];
     categories.forEach(category => {
         if (category.items.some((item) => item.isArchived)) {
-            categoriesWithArchivedItems.push(category)
+            categoriesWithArchivedItems.push(category);
         }
     });
 
@@ -36,10 +36,8 @@ const ArchiveCategoriesScreen = props => {
     );
 }
 
-ArchiveCategoriesScreen.navigationOptions = (navigationData) => {
-    return {
-        headerTitle: "Archive"
-    }
+ArchiveCategoriesScreen.navigationOptions = {
+    headerTitle: "Archive"
 }
 
 const styles = StyleSheet.create({

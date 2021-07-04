@@ -6,13 +6,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteCategory } from '../store/action';
 import SwipeListWithEditAndDelete from '../components/SwipeListWithEditAndDelete';
 import Colors from '../constants/colors';
+
 const CategoriesScreen = props => {
     const dispatch = useDispatch();
     const categories = useSelector((state) => {
         return state;
     }).categories;
-    console.log("...........................................................")
-    console.log(categories)
     const categoriesWithoutArchivedItems = [];
     categories.forEach(category => {
         if (category.items.length == 0) {
@@ -51,7 +50,7 @@ CategoriesScreen.navigationOptions = (navigationData) => {
         headerRight: () => (
             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                 <Item iconName='ios-add-sharp' onPress={() => {
-                    navigationData.navigation.navigate('AddCategory')
+                    navigationData.navigation.navigate('AddCategory');
                 }} />
             </HeaderButtons>
         )

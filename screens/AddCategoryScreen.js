@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { addCategory } from '../store/action';
-
 import FilledButton from '../components/FilledButton';
 import OutlinedButton from '../components/OutlinedButton';
 import OutlinedTextInput from '../components/OutlinedTextInput';
 
 const AddCategoryScreen = props => {
     const dispatch = useDispatch();
-
-
     const [name, setName] = useState('');
     const onClose = () => {
         props.navigation.goBack();
@@ -36,7 +33,6 @@ const AddCategoryScreen = props => {
 AddCategoryScreen.navigationOptions = {
     headerTitle: "New category"
 }
-
 
 const styles = StyleSheet.create({
     buttons: {

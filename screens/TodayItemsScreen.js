@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 import Colors from '../constants/colors';
 import ExpandingSwipeList from '../components/ExpandingSwipeList';
 import { isForToday } from '../helpers/refreshTimeHelper';
 import { getDate } from '../helpers/dateHelder';
+
 const TodayItemsScreen = props => {
-    const dispatch = useDispatch();
     const categories = useSelector((state) => {
         return state;
     }).categories;
@@ -20,13 +20,11 @@ const TodayItemsScreen = props => {
             const isSkipped = item.skippedDate === getDate();
             const isArchived = item.isArchived;
             if (isItemForToday && !isSkipped && !isArchived) {
-                category.items.push(item)
+                category.items.push(item);
             }
         });
     });
-
     categoriesForToday = categoriesForToday.filter(category => category.items.length !== 0);
-
 
     const renderCategory = (data) => {
         const category = data.item;
@@ -53,11 +51,13 @@ const TodayItemsScreen = props => {
     />
 }
 
-TodayItemsScreen.navigationOptions = (navigationData) => {
-    return {
-        headerTitle: 'MindBreaker'
+TodayItemsScreen.navigationOptions = {
+    headerTitle: "MindBreaker",
+    headerTitleStyle: {
+        fontSize: 35,
+        fontFamily: 'DancingScript'
     }
-};
+}
 
 const styles = StyleSheet.create({
     emptyBox: {

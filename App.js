@@ -17,26 +17,40 @@ const initialState = {
             name: "C1",
             items: [
                 {
-                    id: 2,
-                    name: 'C1I1',
-                    description: 'слово',
-                    refreshes: [
-                        "06/01/2021",
-                        "06/02/2021",
-                        "06/03/2021",
-                        "06/04/2021",
-                        "06/05/2021",
-                        "06/05/2021"
-                    ],
+                    id: 3,
+                    name: 'C1Irthrthrthrthrthrthrthr1',
+                    description: 'слоthrthrthrthrthrth rth rthr hrt rth rth rthrво',
+                    refreshes: [],
                     isArchived: false,
-                    skippedDate: "06/03/2021"
+                    skippedDate: null
+                },
+                {
+                    id: 4,
+                    name: 'C1I2',
+                    description: 'слово',
+                    refreshes: [],
+                    isArchived: false,
+                    skippedDate: null
+                }
+            ]
+        },
+        {
+            id: 2,
+            name: "C2",
+            items: [
+                {
+                    id: 5,
+                    name: 'C2I1',
+                    description: 'слово',
+                    refreshes: [],
+                    isArchived: true,
+                    skippedDate: null
                 }
             ]
         }
     ],
     freeId: 11
 }
-console.log("==============================================================================")
 
 const store = createStore(itemsReducer);
 
@@ -44,8 +58,7 @@ export default function App() {
     const [isFontsLoaded] = useFonts({
         OpenSans: require('./assets/fonts/OpenSans-Regular.ttf'),
         OpenSansBold: require('./assets/fonts/OpenSans-Bold.ttf'),
-        DancingScript: require('./assets/fonts/DancingScript-VariableFont_wght.ttf'),
-        Lobster: require('./assets/fonts/Lobster-Regular.ttf')
+        DancingScript: require('./assets/fonts/DancingScript-Bold.ttf')
 
     });
     const [isDataLoaded, setIsDataLoaded] = useState(false);

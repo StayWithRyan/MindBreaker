@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Colors from '../constants/colors'
+import Colors from '../constants/colors';
+
 const OutlinedButton = props => {
     return (
         <TouchableOpacity onPress={props.onPress} style={{ flex: 1, height: 70 }}>
@@ -10,7 +11,6 @@ const OutlinedButton = props => {
         </TouchableOpacity>
     );
 }
-
 
 const styles = StyleSheet.create({
     outlinedButton: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     buttonText: {
-        fontSize: 17,
+        fontSize: 15,
         fontFamily: 'OpenSansBold',
         textAlign: 'center'
     }

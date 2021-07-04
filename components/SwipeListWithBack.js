@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
-import Colors from '../constants/colors'
+import Colors from '../constants/colors';
 import { SwipeListView } from 'react-native-swipe-list-view';
-import { SimpleLineIcons, FontAwesome, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const SwipeListWithBack = props => {
 
@@ -10,7 +10,7 @@ const SwipeListWithBack = props => {
         return <TouchableHighlight
             onPress={
                 () => {
-                    props.onPress && props.onPress(data)
+                    props.onPress && props.onPress(data);
                 }
             }
             style={styles.rowFront}
@@ -52,7 +52,7 @@ const SwipeListWithBack = props => {
                 style={styles.backRightBtn}
                 onPress={
                     () => {
-                        props.onBack(data)
+                        props.onBack(data);
                     }
                 }
             >
@@ -72,8 +72,6 @@ const SwipeListWithBack = props => {
         />
     );
 }
-
-
 
 const styles = StyleSheet.create({
     rowFront: {

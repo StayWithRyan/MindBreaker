@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createAppContainer } from 'react-navigation';
 import { Ionicons, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../constants/colors';
-
 import ItemsNavigator from './ItemsNavigator';
 import TodayItemsNavigator from './TodayItemsNavigator';
 import ArchiveNavigator from './ArchiveNavigator';
