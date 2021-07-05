@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity, LayoutAnimation } from 'react-native';
 import Colors from '../constants/colors';
 import { SwipeListView } from 'react-native-swipe-list-view';
-import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons';
 
 const SwipeList = props => {
     const [isOpen, setIsOpen] = useState(true);
@@ -48,13 +48,15 @@ const SwipeList = props => {
     };
 
     return <View>
-        <TouchableOpacity style={styles.categoryBorder} onPress={() => {
+        <TouchableOpacity style={styles.categoryHeader} onPress={() => {
             LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
             setIsOpen((prevState) => {
                 return !prevState;
             })
         }}>
             <Text style={styles.categoryText} ellipsizeMode='tail' numberOfLines={1} >{props.title}</Text>
+            {!isOpen && <AntDesign name="caretdown" size={24} color={Colors.mainTextColor} />}
+            {isOpen && <AntDesign name="caretup" size={24} color={Colors.mainTextColor} />}
         </TouchableOpacity>
         {
             isOpen
@@ -99,11 +101,14 @@ const styles = StyleSheet.create({
         fontFamily: 'OpenSansBold',
         fontSize: 25
     },
-    categoryBorder: {
+    categoryHeader: {
         width: '90%',
         alignSelf: 'center',
         borderBottomWidth: 2,
-        borderBottomColor: Colors.mainButtonColor
+        borderBottomColor: Colors.mainButtonColor,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     }
 });
 
